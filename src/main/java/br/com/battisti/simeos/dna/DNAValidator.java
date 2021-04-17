@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 
 @Service
-public class DNA {
+public class DNAValidator {
 
     public static final int MINIMAL_COUNT = 4; //quantidade minica de caracteres na sequencia para identificar DNA
     public static final String[] ATCG_DATA = {"A", "T", "C", "G"};
