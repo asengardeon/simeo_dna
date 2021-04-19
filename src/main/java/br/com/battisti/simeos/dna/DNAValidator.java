@@ -1,8 +1,13 @@
 package br.com.battisti.simeos.dna;
 
+import br.com.battisti.simeos.data.dao.StatsDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+
+import static br.com.battisti.simeos.models.DNA.HUMAN;
+import static br.com.battisti.simeos.models.DNA.SIMIAN;
 
 @Service
 public class DNAValidator {
@@ -10,9 +15,19 @@ public class DNAValidator {
     public static final int MINIMAL_COUNT = 4; //quantidade minica de caracteres na sequencia para identificar DNA
     public static final String[] ATCG_DATA = {"A", "T", "C", "G"};
 
+    @Autowired
+    private StatsDAO statsDAO;
+
     public boolean isSimian (String[] dna){
         if (isMinimumSizeDNA(dna) && isQuadraticMatrix(dna) && isValidCharacters(dna)){
-            return isHorizontalSequenceForAllChar(dna) || isVerticalSequenceForAllChar(dna) || isDiagonalSequenceForAllChar(dna);
+            boolean result = isHorizontalSequenceForAllChar(dna) || isVerticalSequenceForAllChar(dna) || isDiagonalSequenceForAllChar(dna);
+            if (result){
+                statsDAO.saveDna(dna, SIMIAN);
+            }
+            else {
+                statsDAO.saveDna(dna, HUMAN);
+            }
+            return result;
         }
         return false;
     }
