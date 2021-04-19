@@ -1,3 +1,6 @@
+import br.com.battisti.simeos.SimeosApplication;
+import br.com.battisti.simeos.data.dao.StatsDAO;
+import br.com.battisti.simeos.data.repositories.StatRepository;
 import br.com.battisti.simeos.dna.DNAValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,7 +11,7 @@ import utils.FileUtils;
 import java.util.Arrays;
 
 
-@SpringBootTest(classes = DNAValidator.class)
+@SpringBootTest(classes = {SimeosApplication.class})
 public class TestSimsDNA {
 
     public static final String VALID_HORIZONTAL_CHAR = "C";
