@@ -55,11 +55,12 @@ public class StatsDAO {
             }
         }
 
+
         float ratio;
         if (result.getCount_human_dna() == 0) {
             ratio = result.getCount_mutant_dna();
         }else{
-            ratio = result.getCount_mutant_dna() / result.getCount_human_dna();
+            ratio = Float.valueOf(result.getCount_mutant_dna())/Float.valueOf(result.getCount_human_dna());
         }
         result.setRatio(ratio*100);
 

@@ -1,6 +1,4 @@
 import br.com.battisti.simeos.SimeosApplication;
-import br.com.battisti.simeos.data.dao.StatsDAO;
-import br.com.battisti.simeos.data.repositories.StatRepository;
 import br.com.battisti.simeos.dna.DNAValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

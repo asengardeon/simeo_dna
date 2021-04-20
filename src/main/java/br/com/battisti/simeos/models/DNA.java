@@ -1,6 +1,8 @@
 package br.com.battisti.simeos.models;
 
-public class DNA {
+import java.io.Serializable;
+
+public class DNA implements Serializable {
 
     public static final String SIMIAN = "SIMIAN";
     public static final String HUMAN = "HUMAN";
