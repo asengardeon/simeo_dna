@@ -40,7 +40,7 @@ public class DNAControllerTest {
 
     @Test
     public void testIsEmptyStat(){
-        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stat", StatResponse.class);
+        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stats", StatResponse.class);
         Assertions.assertEquals(result.getCount_human_dna(), 0);
         Assertions.assertEquals(result.getCount_mutant_dna(), 0);
         Assertions.assertEquals(result.getRatio(), 0);
@@ -49,7 +49,7 @@ public class DNAControllerTest {
     @Test
     public void testStatWithZeroHumans(){
         postFile("simeo_curto.txt");
-        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stat", StatResponse.class);
+        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stats", StatResponse.class);
         Assertions.assertEquals(result.getCount_human_dna(), 0);
         Assertions.assertEquals(result.getCount_mutant_dna(), 1);
         Assertions.assertEquals(result.getRatio(), 100);
@@ -59,7 +59,7 @@ public class DNAControllerTest {
     public void testStatWithSimianEqualHumans(){
         postFile("simeo_curto.txt");
         postFile("humano_curto.txt");
-        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stat", StatResponse.class);
+        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stats", StatResponse.class);
         Assertions.assertEquals(result.getCount_human_dna(), 1);
         Assertions.assertEquals(result.getCount_mutant_dna(), 1);
         Assertions.assertEquals(result.getRatio(), 100);
@@ -70,7 +70,7 @@ public class DNAControllerTest {
         postFile("simeo_curto.txt");
         postFile("humano_curto.txt");
         postFile("humano.txt");
-        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stat", StatResponse.class);
+        StatResponse result = this.restTemplate.getForObject("http://localhost:" + port + "/stats", StatResponse.class);
         Assertions.assertEquals(result.getCount_human_dna(), 2);
         Assertions.assertEquals(result.getCount_mutant_dna(), 1);
         Assertions.assertEquals(result.getRatio(), 50);
