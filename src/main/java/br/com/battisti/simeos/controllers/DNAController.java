@@ -27,7 +27,7 @@ public class DNAController {
         throw new NotSimianException("DNA não pertence a um simeo");
     }
 
-    @GetMapping("/stat")
+    @GetMapping("/stats")
     StatResponse getStat() {
         return statsDAO.getStat();
     }
