@@ -1,7 +1,7 @@
 # simeo_dna
-Repositório de projeto para identificar se um código dna é de simeo ou humano
-Mantenedor: Leandro Vilson Battisti
-e-mail: asengardeons@hotmail.com
+Repositório de projeto para identificar se um código dna é de simeo ou humano  
+Mantenedor: Leandro Vilson Battisti  
+e-mail: asengardeons@hotmail.com  
 
 ## Tecnologias utilizadas
 - Spring 2.4
