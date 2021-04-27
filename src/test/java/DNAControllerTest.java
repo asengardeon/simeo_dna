@@ -2,7 +2,6 @@ import br.com.battisti.simeos.SimeosApplication;
 import br.com.battisti.simeos.data.repositories.StatRepository;
 import br.com.battisti.simeos.models.DNA;
 import br.com.battisti.simeos.models.StatResponse;
-import configs.H2Configuration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,9 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
+import org.springframework.test.context.ActiveProfiles;
 import utils.FileUtils;
 
-@SpringBootTest(classes = {SimeosApplication.class, H2Configuration.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {SimeosApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DNAControllerTest {
 
     private final FileUtils files;
